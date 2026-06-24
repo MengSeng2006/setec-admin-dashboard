@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setec | Appearance Settings</title>
-    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="../Germinai-style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -16,16 +16,18 @@
             <div class="sidebar-logo">
                 <div class="logo-img-container">
                     <img id="main-sidebar-logo" src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
-                         onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
+                        onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
                 </div>
             </div>
             <nav class="sidebar-menu">
                 <a href="index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
                 <a href="products.html" class="menu-item"><i class="fa-solid fa-box"></i> <span>Products</span></a>
                 <a href="categories.html" class="menu-item"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
-                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a>
+                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i>
+                    <span>Orders</span></a>
                 <a href="users.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Users</span></a>
-                <a href="settings.html" class="menu-item active"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+                <a href="settings.html" class="menu-item active"><i class="fa-solid fa-gear"></i>
+                    <span>Settings</span></a>
             </nav>
         </aside>
 
@@ -45,7 +47,7 @@
                         <input type="text" placeholder="Search settings...">
                     </div>
                     <div class="notification-icon"><i class="fa-solid fa-bell"></i><span class="badge">3</span></div>
-                    
+
                     <div class="profile-container">
                         <div class="profile-dropdown-trigger" id="profileTrigger">
                             <span class="profile-name">Dara</span>
@@ -58,7 +60,7 @@
 
             <!-- SETTINGS SYSTEM WORKSPACE -->
             <div class="settings-workspace">
-                
+
                 <!-- LEFT HAND SETTINGS NAVIGATION CARD -->
                 <div class="settings-menu-card">
                     <h3>Settings Menu</h3>
@@ -79,10 +81,11 @@
                 <!-- RIGHT HAND CONFIGURATION PANEL -->
                 <div class="settings-content-card">
                     <form id="systemSettingsForm">
-                        
+
                         <div class="settings-panel active" id="appearance-panel">
                             <div class="panel-header">
-                                <div class="panel-icon-box" id="panel-header-icon"><i class="fa-solid fa-palette"></i></div>
+                                <div class="panel-icon-box" id="panel-header-icon"><i class="fa-solid fa-palette"></i>
+                                </div>
                                 <div>
                                     <h2>Appearance</h2>
                                     <p>Customize the look and feel</p>
@@ -94,12 +97,18 @@
                             <div class="setting-row-group">
                                 <label class="group-title">Theme Color</label>
                                 <div class="theme-color-palette">
-                                    <div class="color-swatch" data-color="#0f808a" style="background-color: #0f808a;"></div>
-                                    <div class="color-swatch" data-color="#3b82f6" style="background-color: #3b82f6;"></div>
-                                    <div class="color-swatch" data-color="#a855f7" style="background-color: #a855f7;"></div>
-                                    <div class="color-swatch" data-color="#10b981" style="background-color: #10b981;"></div>
-                                    <div class="color-swatch" data-color="#f59e0b" style="background-color: #f59e0b;"></div>
-                                    <div class="color-swatch" data-color="#ef4444" style="background-color: #ef4444;"></div>
+                                    <div class="color-swatch" data-color="#0f808a" style="background-color: #0f808a;">
+                                    </div>
+                                    <div class="color-swatch" data-color="#3b82f6" style="background-color: #3b82f6;">
+                                    </div>
+                                    <div class="color-swatch" data-color="#a855f7" style="background-color: #a855f7;">
+                                    </div>
+                                    <div class="color-swatch" data-color="#10b981" style="background-color: #10b981;">
+                                    </div>
+                                    <div class="color-swatch" data-color="#f59e0b" style="background-color: #f59e0b;">
+                                    </div>
+                                    <div class="color-swatch" data-color="#ef4444" style="background-color: #ef4444;">
+                                    </div>
                                 </div>
                             </div>
 
@@ -107,7 +116,10 @@
                             <div class="setting-row-group">
                                 <label class="group-title">Logo</label>
                                 <div class="upload-flex-container">
-                                    <img id="preview-logo-img" src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png" onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="Logo Preview" class="asset-preview-img-rect">
+                                    <img id="preview-logo-img"
+                                        src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
+                                        onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="Logo Preview"
+                                        class="asset-preview-img-rect">
                                     <label class="btn-upload-trigger">
                                         <i class="fa-solid fa-upload"></i> Upload New Logo
                                         <input type="file" id="logoFileInput" accept="image/*" style="display: none;">
@@ -118,10 +130,14 @@
                             <div class="setting-row-group">
                                 <label class="group-title">Favicon</label>
                                 <div class="upload-flex-container">
-                                    <img id="preview-favicon-img" src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png" onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="Favicon Preview" class="asset-preview-img-square">
+                                    <img id="preview-favicon-img"
+                                        src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
+                                        onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="Favicon Preview"
+                                        class="asset-preview-img-square">
                                     <label class="btn-upload-trigger">
                                         <i class="fa-solid fa-upload"></i> Upload New Favicon
-                                        <input type="file" id="faviconFileInput" accept="image/*" style="display: none;">
+                                        <input type="file" id="faviconFileInput" accept="image/*"
+                                            style="display: none;">
                                     </label>
                                 </div>
                             </div>
@@ -161,6 +177,7 @@
         </main>
     </div>
 
-    <script src="/Germinai-style/script.js  "></script>
+    <script src="../Germinai-style/script.js"></script>
 </body>
+
 </html>

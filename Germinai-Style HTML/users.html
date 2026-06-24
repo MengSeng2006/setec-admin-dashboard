@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setec | Users Admin</title>
-    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="../Germinai-style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -64,7 +64,7 @@
 
             <div class="page-action-header">
                 <h2>Users Management</h2>
-               
+
                 <button class="btn-add" onclick="openUserModal()">+ Add User</button>
             </div>
 
@@ -89,74 +89,74 @@
         </main>
     </div>
     <!-- THE ANCHOR POPUP MODAL WRAPPER -->
-<div class="custom-modal-overlay" id="userModalOverlay">
-    <div class="user-modal-card">
-        <!-- Teal Header Section matching Screenshot 2026-06-20 114239.png -->
-        <div class="modal-card-header">
-            <h3 id="modalFormTitle">Add User</h3>
-            <button type="button" class="close-modal-x" onclick="closeUserModal()">&times;</button>
+    <div class="custom-modal-overlay" id="userModalOverlay">
+        <div class="user-modal-card">
+            <!-- Teal Header Section matching Screenshot 2026-06-20 114239.png -->
+            <div class="modal-card-header">
+                <h3 id="modalFormTitle">Add User</h3>
+                <button type="button" class="close-modal-x" onclick="closeUserModal()">&times;</button>
+            </div>
+
+            <!-- Integrated Form Control Module -->
+            <form id="modalUserForm" novalidate>
+                <!-- Row 1: Dual Column Name Matrix -->
+                <div class="form-modal-row">
+                    <div class="modal-group">
+                        <label>First Name</label>
+                        <input type="text" id="modalFirstName" placeholder="Enter first name">
+                        <div class="modal-error-text" id="errModalFirstName">First name is required</div>
+                    </div>
+                    <div class="modal-group">
+                        <label>Last Name</label>
+                        <input type="text" id="modalLastName" placeholder="Enter last name">
+                        <div class="modal-error-text" id="errModalLastName">Last name is required</div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Standard Single Column Email Block -->
+                <div class="modal-group">
+                    <label>Email</label>
+                    <input type="email" id="modalEmail" placeholder="user@example.com">
+                    <div class="modal-error-text" id="errModalEmail">A valid email is required</div>
+                </div>
+
+                <!-- Row 3: Dual Column Dropdowns -->
+                <div class="form-modal-row">
+                    <div class="modal-group">
+                        <label>Role</label>
+                        <select id="modalRole">
+                            <option value="User">User</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                        </select>
+                    </div>
+                    <div class="modal-group">
+                        <label>Status</label>
+                        <select id="modalStatus">
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 4: Single Column Phone Input -->
+                <div class="modal-group">
+                    <label>Phone</label>
+                    <input type="text" id="modalPhone" placeholder="+855 12 345 678">
+                    <div class="modal-error-text" id="errModalPhone">Phone number is required</div>
+                </div>
+
+                <!-- Row 5: Action Footer Buttons Alignment -->
+                <div class="modal-action-footer">
+                    <button type="button" class="btn-modal-cancel" onclick="closeUserModal()">Cancel</button>
+                    <button type="submit" class="btn-modal-save">
+                        <i class="fa-solid fa-check"></i> Save User
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <!-- Integrated Form Control Module -->
-        <form id="modalUserForm" novalidate>
-            <!-- Row 1: Dual Column Name Matrix -->
-            <div class="form-modal-row">
-                <div class="modal-group">
-                    <label>First Name</label>
-                    <input type="text" id="modalFirstName" placeholder="Enter first name">
-                    <div class="modal-error-text" id="errModalFirstName">First name is required</div>
-                </div>
-                <div class="modal-group">
-                    <label>Last Name</label>
-                    <input type="text" id="modalLastName" placeholder="Enter last name">
-                    <div class="modal-error-text" id="errModalLastName">Last name is required</div>
-                </div>
-            </div>
-
-            <!-- Row 2: Standard Single Column Email Block -->
-            <div class="modal-group">
-                <label>Email</label>
-                <input type="email" id="modalEmail" placeholder="user@example.com">
-                <div class="modal-error-text" id="errModalEmail">A valid email is required</div>
-            </div>
-
-            <!-- Row 3: Dual Column Dropdowns -->
-            <div class="form-modal-row">
-                <div class="modal-group">
-                    <label>Role</label>
-                    <select id="modalRole">
-                        <option value="User">User</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Manager">Manager</option>
-                    </select>
-                </div>
-                <div class="modal-group">
-                    <label>Status</label>
-                    <select id="modalStatus">
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Row 4: Single Column Phone Input -->
-            <div class="modal-group">
-                <label>Phone</label>
-                <input type="text" id="modalPhone" placeholder="+855 12 345 678">
-                <div class="modal-error-text" id="errModalPhone">Phone number is required</div>
-            </div>
-
-            <!-- Row 5: Action Footer Buttons Alignment -->
-            <div class="modal-action-footer">
-                <button type="button" class="btn-modal-cancel" onclick="closeUserModal()">Cancel</button>
-                <button type="submit" class="btn-modal-save">
-                    <i class="fa-solid fa-check"></i> Save User
-                </button>
-            </div>
-        </form>
     </div>
-</div>
-    <script src="/Germinai-style/script.js"></script>
+    <script src="../Germinai-style/script.js"></script>
 </body>
 
 </html>

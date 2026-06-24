@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setec | Orders Admin</title>
-    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="../Germinai-style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -15,14 +15,15 @@
             <div class="sidebar-logo">
                 <div class="logo-img-container">
                     <img src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
-                         onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
+                        onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
                 </div>
             </div>
             <nav class="sidebar-menu">
                 <a href="index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
                 <a href="products.html" class="menu-item"><i class="fa-solid fa-box"></i> <span>Products</span></a>
                 <a href="categories.html" class="menu-item"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
-                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a>
+                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i>
+                    <span>Orders</span></a>
                 <a href="users.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Users</span></a>
                 <a href="settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
             </nav>
@@ -93,52 +94,51 @@
             </div>
         </main>
     </div>
-<div id="orderModalOverlay" class="modal-overlay">
-    <div class="modal-card">
-        <div class="modal-header">
-            <h3 id="orderModalTitle">Add Order</h3>
-            <button type="button" class="close-modal-btn" onclick="window.closeOrderModal()">&times;</button>
+    <div id="orderModalOverlay" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="orderModalTitle">Add Order</h3>
+                <button type="button" class="close-modal-btn" onclick="window.closeOrderModal()">&times;</button>
+            </div>
+            <form id="modalOrderForm">
+                <div class="modal-body">
+                    <div class="modal-group">
+                        <label for="modalOrderName">Order Name</label>
+                        <input type="text" id="modalOrderName" placeholder="Enter customer name">
+                    </div>
+                    <div class="modal-group">
+                        <label for="modalOrderProduct">Product</label>
+                        <select id="modalOrderProduct">
+                            <option value="">Select Product</option>
+                        </select>
+                    </div>
+                    <div class="modal-group">
+                        <label for="modalOrderQty">Quantity</label>
+                        <input type="number" id="modalOrderQty" placeholder="Enter quantity">
+                    </div>
+                    <div class="modal-group">
+                        <label for="modalOrderDate">Date</label>
+                        <input type="date" id="modalOrderDate" value="2026-06-21">
+                    </div>
+                    <div class="modal-group">
+                        <label for="modalOrderStatus">Status</label>
+                        <select id="modalOrderStatus">
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-secondary" onclick="window.closeOrderModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fa-solid fa-check"></i> Save Order
+                    </button>
+                </div>
+            </form>
         </div>
-        <form id="modalOrderForm">
-            <div class="modal-body">
-                <div class="modal-group">
-                    <label for="modalOrderName">Order Name</label>
-                    <input type="text" id="modalOrderName" placeholder="Enter customer name">
-                </div>
-                <div class="modal-group">
-                    <label for="modalOrderProduct">Product</label>
-                    <select id="modalOrderProduct">
-                        <option value="">Select Product</option>
-                    </select>
-                </div>
-                <div class="modal-group">
-                    <label for="modalOrderQty">Quantity</label>
-                    <input type="number" id="modalOrderQty" placeholder="Enter quantity">
-                </div>
-                <div class="modal-group">
-                    <label for="modalOrderDate">Date</label>
-                    <input type="date" id="modalOrderDate" value="2026-06-21">
-                </div>
-                <div class="modal-group">
-                    <label for="modalOrderStatus">Status</label>
-                    <select id="modalOrderStatus">
-                        <option value="Pending">Pending</option>
-                        <option value="Completed">Completed</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn-secondary" onclick="window.closeOrderModal()">Cancel</button>
-                <button type="submit" class="btn-primary">
-                    <i class="fa-solid fa-check"></i> Save Order
-                </button>
-            </div>
-        </form>
     </div>
-</div>
-   
 
-    <script src="/Germinai-style/script.js"></script>
-</body>
+
+    <script src="../Germinai-style/script.js"></script>
 
 </html>

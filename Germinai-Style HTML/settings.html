@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setec | Configuration Settings</title>
-    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="../Germinai-style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -14,14 +14,16 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-logo">
                 <div class="logo-img-container">
-                    <img src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png" onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
+                    <img src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
+                        onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
                 </div>
             </div>
             <nav class="sidebar-menu">
                 <a href="index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
                 <a href="products.html" class="menu-item"><i class="fa-solid fa-box"></i> <span>Products</span></a>
                 <a href="categories.html" class="menu-item"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
-                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a>
+                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i>
+                    <span>Orders</span></a>
                 <a href="users.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Users</span></a>
                 <a href="settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
             </nav>
@@ -56,7 +58,8 @@
                             <hr class="dropdown-divider">
                             <a href="settings.html" class="dropdown-item"><i class="fa-solid fa-gear"></i> Settings</a>
                             <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-danger" id="logoutTriggerBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                            <a href="#" class="dropdown-item text-danger" id="logoutTriggerBtn"><i
+                                    class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                         </div>
                     </div>
                 </div>
@@ -66,37 +69,47 @@
                 <div class="settings-menu-card">
                     <div class="settings-menu-title">Settings Menu</div>
                     <button class="settings-nav-btn active" onclick="window.location.href='settings.html'">
-                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-sliders"></i> General</span>
+                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-sliders"></i>
+                            General</span>
                     </button>
                     <button class="settings-nav-btn" onclick="window.location.href='appearance.html'">
-                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-palette"></i> Appearance</span>
+                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-palette"></i>
+                            Appearance</span>
                     </button>
                     <button class="settings-nav-btn" onclick="window.location.href='notifications.html'">
-                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-bell"></i> Notifications</span> 
+                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-bell"></i>
+                            Notifications</span>
                         <span class="settings-badge">3</span>
                     </button>
                 </div>
 
                 <div class="settings-form-card">
-                    <div class="card-header" style="margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:10px;">
+                    <div class="card-header"
+                        style="margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:10px;">
                         <div>
-                            <h3 style="font-size:1.1rem; font-weight:600;"><i class="fa-solid fa-circle-nodes" style="color:var(--primary-teal); margin-right:6px;"></i> General Settings</h3>
-                            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">Basic system configuration</p>
+                            <h3 style="font-size:1.1rem; font-weight:600;"><i class="fa-solid fa-circle-nodes"
+                                    style="color:var(--primary-teal); margin-right:6px;"></i> General Settings</h3>
+                            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">Basic system
+                                configuration</p>
                         </div>
                     </div>
 
                     <form onsubmit="event.preventDefault(); alert('Settings configuration data cached safely!');">
                         <div class="form-group-grid">
-                            <div class="form-control-item"><label>Site Name</label><input type="text" value="Setec E-commerce"></div>
-                            <div class="form-control-item"><label>Site URL</label><input type="url" value="https://www.setec.com"></div>
+                            <div class="form-control-item"><label>Site Name</label><input type="text"
+                                    value="Setec E-commerce"></div>
+                            <div class="form-control-item"><label>Site URL</label><input type="url"
+                                    value="https://www.setec.com"></div>
                         </div>
                         <div class="form-control-item" style="margin-bottom:1.25rem;">
                             <label>Site Description</label>
                             <textarea rows="3">Your trusted e-commerce platform for quality products</textarea>
                         </div>
                         <div class="form-group-grid">
-                            <div class="form-control-item"><label>Admin Email</label><input type="email" value="admin@setec.com"></div>
-                            <div class="form-control-item"><label>Support Email</label><input type="email" value="support@setec.com"></div>
+                            <div class="form-control-item"><label>Admin Email</label><input type="email"
+                                    value="admin@setec.com"></div>
+                            <div class="form-control-item"><label>Support Email</label><input type="email"
+                                    value="support@setec.com"></div>
                         </div>
                         <div class="form-control-item" style="margin-bottom:1.5rem;"><label>Timezone</label>
                             <select>
@@ -129,7 +142,7 @@
             </div>
         </main>
     </div>
-    <script src="/Germinai-style/script.js"></script>
+    <script src="../Germinai-style/script.js"></script>
 </body>
 
 </html>

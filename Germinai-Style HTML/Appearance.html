@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setec | Appearance Settings</title>
+    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation Layout Panel -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-img-container">
+                    <img id="main-sidebar-logo" src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
+                         onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
+                </div>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <a href="products.html" class="menu-item"><i class="fa-solid fa-box"></i> <span>Products</span></a>
+                <a href="categories.html" class="menu-item"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
+                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a>
+                <a href="users.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Users</span></a>
+                <a href="settings.html" class="menu-item active"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </nav>
+        </aside>
+
+        <!-- Main Workspace Frame Wrapper -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="nav-left">
+                    <button class="toggle-btn" id="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome-msg">
+                        <h1>Settings</h1>
+                        <p>Configure system preferences</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search settings...">
+                    </div>
+                    <div class="notification-icon"><i class="fa-solid fa-bell"></i><span class="badge">3</span></div>
+                    
+                    <div class="profile-container">
+                        <div class="profile-dropdown-trigger" id="profileTrigger">
+                            <span class="profile-name">Dara</span>
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" class="profile-img">
+                            <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SETTINGS SYSTEM WORKSPACE -->
+            <div class="settings-workspace">
+                
+                <!-- LEFT HAND SETTINGS NAVIGATION CARD -->
+                <div class="settings-menu-card">
+                    <h3>Settings Menu</h3>
+                    <!-- Replaced with sidebar-menu style structure to fix image_510200.png -->
+                    <nav class="sidebar-menu style-settings-menu">
+                        <a href="settings.html" class="menu-item">
+                            <i class="fa-solid fa-sliders"></i> <span>General</span>
+                        </a>
+                        <a href="Appearance.html" class="menu-item active">
+                            <i class="fa-solid fa-palette"></i> <span>Appearance</span>
+                        </a>
+                        <a href="Notification.html" class="menu-item">
+                            <i class="fa-solid fa-bell"></i> <span>Notifications</span> <span class="tab-badge">3</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- RIGHT HAND CONFIGURATION PANEL -->
+                <div class="settings-content-card">
+                    <form id="systemSettingsForm">
+                        
+                        <div class="settings-panel active" id="appearance-panel">
+                            <div class="panel-header">
+                                <div class="panel-icon-box" id="panel-header-icon"><i class="fa-solid fa-palette"></i></div>
+                                <div>
+                                    <h2>Appearance</h2>
+                                    <p>Customize the look and feel</p>
+                                </div>
+                            </div>
+                            <hr class="panel-divider">
+
+                            <!-- Palette Selector Modules -->
+                            <div class="setting-row-group">
+                                <label class="group-title">Theme Color</label>
+                                <div class="theme-color-palette">
+                                    <div class="color-swatch" data-color="#0f808a" style="background-color: #0f808a;"></div>
+                                    <div class="color-swatch" data-color="#3b82f6" style="background-color: #3b82f6;"></div>
+                                    <div class="color-swatch" data-color="#a855f7" style="background-color: #a855f7;"></div>
+                                    <div class="color-swatch" data-color="#10b981" style="background-color: #10b981;"></div>
+                                    <div class="color-swatch" data-color="#f59e0b" style="background-color: #f59e0b;"></div>
+                                    <div class="color-swatch" data-color="#ef4444" style="background-color: #ef4444;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Live Image Asset Upload Slots -->
+                            <div class="setting-row-group">
+                                <label class="group-title">Logo</label>
+                                <div class="upload-flex-container">
+                                    <img id="preview-logo-img" src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png" onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="Logo Preview" class="asset-preview-img-rect">
+                                    <label class="btn-upload-trigger">
+                                        <i class="fa-solid fa-upload"></i> Upload New Logo
+                                        <input type="file" id="logoFileInput" accept="image/*" style="display: none;">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="setting-row-group">
+                                <label class="group-title">Favicon</label>
+                                <div class="upload-flex-container">
+                                    <img id="preview-favicon-img" src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png" onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="Favicon Preview" class="asset-preview-img-square">
+                                    <label class="btn-upload-trigger">
+                                        <i class="fa-solid fa-upload"></i> Upload New Favicon
+                                        <input type="file" id="faviconFileInput" accept="image/*" style="display: none;">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Interface Toggle Configuration Rows -->
+                            <div class="setting-block-row">
+                                <div class="block-row-text">
+                                    <h4>Dark Mode</h4>
+                                    <p>Enable dark theme for the admin panel</p>
+                                </div>
+                                <label class="ui-toggle-switch">
+                                    <input type="checkbox" id="toggleDarkMode">
+                                    <span class="ui-slider"></span>
+                                </label>
+                            </div>
+
+                            <div class="setting-block-row">
+                                <div class="block-row-text">
+                                    <h4>Compact Mode</h4>
+                                    <p>Reduce spacing for more content density</p>
+                                </div>
+                                <label class="ui-toggle-switch">
+                                    <input type="checkbox" id="toggleCompactMode">
+                                    <span class="ui-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- PANEL FORM CONTROL FOOTER ACTIONS -->
+                        <div class="settings-form-footer">
+                            <button type="button" class="btn-settings-reset" id="resetSettingsBtn">Reset</button>
+                            <button type="submit" class="btn-settings-save" id="saveChangesBtn">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/Germinai-style/script.js  "></script>
+</body>
+</html>

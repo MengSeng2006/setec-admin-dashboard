@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusAdmin — Dashboard</title>
+<link rel="stylesheet" href="style.css">k
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">Loading NexusAdmin…</div>
+</div>
+
+<!-- APP -->
+<div id="app" style="opacity:0; transition: opacity .4s">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"></div>
+      <span class="logo-text">SETEC INSTETURE</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <div class="nav-item active" data-page="dashboard">
+        <div class="nav-icon"><i class="fas fa-chart-pie"></i></div>
+        <span class="nav-label">Dashboard</span>
+      </div>
+
+      <div class="nav-section-label">Store</div>
+      <div class="nav-item" data-page="products">
+        <div class="nav-icon"><i class="fas fa-box"></i></div>
+        <span class="nav-label">Products</span>
+        <span class="nav-badge" id="badge-products">0</span>
+      </div>
+      <div class="nav-item" data-page="categories">
+        <div class="nav-icon"><i class="fas fa-tags"></i></div>
+        <span class="nav-label">Categories</span>
+      </div>
+      <div class="nav-item" data-page="orders">
+        <div class="nav-icon"><i class="fas fa-shopping-cart"></i></div>
+        <span class="nav-label">Orders</span>
+        <span class="nav-badge" id="badge-orders">0</span>
+      </div>
+
+      <div class="nav-section-label">People</div>
+      <div class="nav-item" data-page="users">
+        <div class="nav-icon"><i class="fas fa-users"></i></div>
+        <span class="nav-label">Users</span>
+      </div>
+
+      <div class="nav-section-label">System</div>
+      <div class="nav-item" data-page="settings">
+        <div class="nav-icon"><i class="fas fa-cog"></i></div>
+        <span class="nav-label">Settings</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-toggle" id="sidebarToggle">
+        <div class="nav-icon"><i class="fas fa-chevron-left" id="toggleIcon"></i></div>
+        <span class="toggle-label">Collapse</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main" id="main">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h2 class="header-title" id="headerTitle">Dashboard</h2>
+      <div class="header-search">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search anything…" id="headerSearch">
+      </div>
+      <div class="header-actions">
+        <div class="icon-btn" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="notif-badge"></span>
+        </div>
+        <div class="icon-btn" title="Messages">
+          <i class="fas fa-envelope"></i>
+        </div>
+      </div>
+      <div class="profile-area" id="profileBtn">
+        <div class="avatar" id="avatarEl">A</div>
+        <div>
+          <div class="profile-name" id="profileName">Admin</div>
+          <div class="profile-role">Super Admin</div>
+        </div>
+        <i class="fas fa-chevron-down" style="color:var(--muted);font-size:.7rem;margin-left:4px"></i>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="#"><i class="fas fa-user"></i> Profile</a>
+          <a href="#"><i class="fas fa-palette"></i> Theme</a>
+          <a href="#"><i class="fas fa-shield-alt"></i> Security</a>
+          <a href="#" style="color:var(--red)"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT AREA -->
+    <div class="content-wrap">
+
+      <!-- ── DASHBOARD PAGE ─────────────────────────────── -->
+      <div class="page active" id="page-dashboard">
+        <div class="page-header">
+          <div class="welcome-chip">
+            <i class="fas fa-sun"></i>
+            <span id="greetingText">Good morning</span>
+          </div>
+          <h1>Welcome back, <span id="greetingName">Admin</span> 👋</h1>
+          <p>Here's what's happening with your store today.</p>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card blue">
+            <div class="stat-label">Total Revenue</div>
+            <div class="stat-value" id="statRevenue">$0</div>
+            <div class="stat-change"><i class="fas fa-arrow-up"></i> 12.5% vs last month</div>
+            <i class="fas fa-dollar-sign stat-icon"></i>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-label">Products</div>
+            <div class="stat-value" id="statProducts">0</div>
+            <div class="stat-change"><i class="fas fa-arrow-up"></i> 4 new this week</div>
+            <i class="fas fa-box stat-icon"></i>
+          </div>
+          <div class="stat-card green">
+            <div class="stat-label">Orders</div>
+            <div class="stat-value" id="statOrders">0</div>
+            <div class="stat-change"><i class="fas fa-arrow-up"></i> 8.3% vs last month</div>
+            <i class="fas fa-shopping-cart stat-icon"></i>
+          </div>
+          <div class="stat-card yellow">
+            <div class="stat-label">Users</div>
+            <div class="stat-value" id="statUsers">0</div>
+            <div class="stat-change"><i class="fas fa-arrow-up"></i> 3 joined today</div>
+            <i class="fas fa-users stat-icon"></i>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Recent Products</span>
+              <span class="card-action" onclick="switchPage('products')">View all</span>
+            </div>
+            <table>
+              <thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Status</th></tr></thead>
+              <tbody id="dashRecentProducts"></tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Recent Orders</span>
+              <span class="card-action" onclick="switchPage('orders')">View all</span>
+            </div>
+            <table>
+              <thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead>
+              <tbody id="dashRecentOrders"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Recent Users</span>
+            <span class="card-action" onclick="switchPage('users')">View all</span>
+          </div>
+          <table>
+            <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th></tr></thead>
+            <tbody id="dashRecentUsers"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── PRODUCTS PAGE ──────────────────────────────── -->
+      <div class="page" id="page-products">
+        <div class="page-header">
+          <h1>Products</h1>
+          <p>Manage your store products, pricing and inventory.</p>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search products…" id="productSearch" oninput="renderProducts()">
+          </div>
+          <select class="form-control" style="width:auto" id="productCatFilter" onchange="renderProducts()">
+            <option value="">All Categories</option>
+          </select>
+          <button class="btn btn-primary" onclick="openProductModal()"><i class="fas fa-plus"></i> Add Product</button>
+        </div>
+        <div class="card">
+          <table>
+            <thead><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+          <div class="pagination" id="productsPagination"></div>
+        </div>
+      </div>
+
+      <!-- ── CATEGORIES PAGE ────────────────────────────── -->
+      <div class="page" id="page-categories">
+        <div class="page-header">
+          <h1>Categories</h1>
+          <p>Organise your products with categories.</p>
+        </div>
+        <div class="toolbar">
+          <button class="btn btn-primary" onclick="openCatModal()"><i class="fas fa-plus"></i> Add Category</button>
+        </div>
+        <div class="card">
+          <table>
+            <thead><tr><th>Name</th><th>Description</th><th>Products</th><th>Actions</th></tr></thead>
+            <tbody id="catsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── ORDERS PAGE ────────────────────────────────── -->
+      <div class="page" id="page-orders">
+        <div class="page-header">
+          <h1>Orders</h1>
+          <p>Track and manage customer orders.</p>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search orders…" id="orderSearch" oninput="renderOrders()">
+          </div>
+          <select class="form-control" style="width:auto" id="orderStatusFilter" onchange="renderOrders()">
+            <option value="">All Status</option>
+            <option>Pending</option>
+            <option>Processing</option>
+            <option>Shipped</option>
+            <option>Delivered</option>
+            <option>Cancelled</option>
+          </select>
+          <button class="btn btn-primary" onclick="openOrderModal()"><i class="fas fa-plus"></i> Add Order</button>
+        </div>
+        <div class="card">
+          <table>
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── USERS PAGE ─────────────────────────────────── -->
+      <div class="page" id="page-users">
+        <div class="page-header">
+          <h1 style="font-size: 2.5rem;">Users Management</h1>
+         
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Search users…" id="userSearch" oninput="renderUsers()">
+          </div>
+          <button class="btn btn-primary" onclick="openUserModal()"><i class="fas fa-plus"></i> Add User</button>
+        </div>
+        <div class="card">
+          <table>
+            <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody id="usersTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── SETTINGS PAGE ──────────────────────────────── -->
+      <div class="page" id="page-settings">
+        <div class="page-header">
+          <h1>Settings</h1>
+          <p>Configure your admin panel preferences.</p>
+        </div>
+        <div class="settings-grid">
+          <div class="settings-section">
+            <h3>General</h3>
+            <div class="form-group">
+              <label class="form-label">Admin Name</label>
+              <input class="form-control" id="settingName" value="Admin" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Store Name</label>
+              <input class="form-control" id="settingStore" value="NexusStore" placeholder="Store name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Currency</label>
+              <select class="form-control" id="settingCurrency">
+                <option>USD</option><option>EUR</option><option>GBP</option><option>JPY</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()"><i class="fas fa-save"></i> Save Changes</button>
+          </div>
+          <div class="settings-section">
+            <h3>Notifications</h3>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">Email Alerts</div>
+                <div class="toggle-desc">Receive order & user alerts</div>
+              </div>
+              <div class="toggle-switch on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">New Order Alert</div>
+                <div class="toggle-desc">Ping when order is placed</div>
+              </div>
+              <div class="toggle-switch on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">Low Stock Alert</div>
+                <div class="toggle-desc">Alert when stock falls below 5</div>
+              </div>
+              <div class="toggle-switch" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">Weekly Report</div>
+                <div class="toggle-desc">Receive weekly summary</div>
+              </div>
+              <div class="toggle-switch on" onclick="this.classList.toggle('on')"></div>
+            </div>
+          </div>
+          <div class="settings-section">
+            <h3>Display</h3>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">Compact Table</div>
+                <div class="toggle-desc">Reduce row padding</div>
+              </div>
+              <div class="toggle-switch" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">Animations</div>
+                <div class="toggle-desc">Enable UI transitions</div>
+              </div>
+              <div class="toggle-switch on" onclick="this.classList.toggle('on')"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label-group">
+                <div class="toggle-name">Auto Refresh</div>
+                <div class="toggle-desc">Refresh data every 60s</div>
+              </div>
+              <div class="toggle-switch" onclick="this.classList.toggle('on')"></div>
+            </div>
+          </div>
+          <div class="settings-section">
+            <h3>Data</h3>
+            <p style="color:var(--muted);font-size:.85rem;margin-bottom:16px">Manage your stored data. This includes products, orders, users, and categories.</p>
+            <button class="btn btn-ghost" style="width:100%;margin-bottom:10px" onclick="exportData()"><i class="fas fa-download"></i> Export Data (JSON)</button>
+            <button class="btn btn-danger" style="width:100%" onclick="clearAllData()"><i class="fas fa-trash"></i> Clear All Data</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content-wrap -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- CONFIRM DIALOG -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-icon"><i class="fas fa-exclamation-triangle"></i></div>
+    <h3 id="confirmTitle">Confirm Delete</h3>
+    <p id="confirmMsg">This action cannot be undone. Are you sure?</p>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" onclick="closeConfirm()">Cancel</button>
+      <button class="btn btn-danger" id="confirmBtn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="productModalTitle">Add Product</h2>
+      <button class="modal-close" onclick="closeModal('productModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="productId">
+      <div class="form-group">
+        <label class="form-label">Product Name *</label>
+        <input class="form-control" id="productName" placeholder="e.g. Wireless Headphones">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category *</label>
+        <select class="form-control" id="productCategory"></select>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">Price ($) *</label>
+          <input class="form-control" id="productPrice" type="number" min="0" step="0.01" placeholder="0.00">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Stock</label>
+          <input class="form-control" id="productStock" type="number" min="0" placeholder="0">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Status</label>
+        <select class="form-control" id="productStatus">
+          <option>Active</option><option>Draft</option><option>Out of Stock</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" id="productDesc" rows="3" placeholder="Product description…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('productModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveProduct()"><i class="fas fa-save"></i> Save Product</button>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY MODAL -->
+<div class="modal-overlay" id="catModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="catModalTitle">Add Category</h2>
+      <button class="modal-close" onclick="closeModal('catModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="catId">
+      <div class="form-group">
+        <label class="form-label">Category Name *</label>
+        <input class="form-control" id="catName" placeholder="e.g. Electronics">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Icon (emoji)</label>
+        <input class="form-control" id="catIcon" placeholder="📦" maxlength="4">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" id="catDesc" rows="3" placeholder="Category description…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('catModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveCat()"><i class="fas fa-save"></i> Save Category</button>
+    </div>
+  </div>
+</div>
+
+<!-- USER MODAL -->
+<div class="modal-overlay" id="userModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="userModalTitle">Add User</h2>
+      <button class="modal-close" onclick="closeModal('userModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="userId">
+      <div class="form-group">
+        <label class="form-label">Full Name *</label>
+        <input class="form-control" id="userName" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email *</label>
+        <input class="form-control" id="userEmail" type="email" placeholder="john@example.com">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">Role</label>
+          <select class="form-control" id="userRole">
+            <option>Customer</option><option>Editor</option><option>Admin</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <select class="form-control" id="userStatus">
+            <option>Active</option><option>Inactive</option><option>Suspended</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('userModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveUser()"><i class="fas fa-save"></i> Save User</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="orderModalTitle">Add Order</h2>
+      <button class="modal-close" onclick="closeModal('orderModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="orderId">
+      <div class="form-group">
+        <label class="form-label">Customer Name *</label>
+        <input class="form-control" id="orderCustomer" placeholder="Customer name">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">Items</label>
+          <input class="form-control" id="orderItems" type="number" min="1" value="1" placeholder="1">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Total ($)</label>
+          <input class="form-control" id="orderTotal" type="number" min="0" step="0.01" placeholder="0.00">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Status</label>
+        <select class="form-control" id="orderStatus">
+          <option>Pending</option><option>Processing</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('orderModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveOrder()"><i class="fas fa-save"></i> Save Order</button>
+    </div>
+  </div>
+</div>
+   <script src="main.js"></script>
+</body>
+</html>

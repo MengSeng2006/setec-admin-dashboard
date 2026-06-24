@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setec | Notification Settings</title>
+    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-img-container">
+                    <img src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png" onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo">
+                </div>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <a href="products.html" class="menu-item"><i class="fa-solid fa-box"></i> <span>Products</span></a>
+                <a href="categories.html" class="menu-item"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
+                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a>
+                <a href="users.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Users</span></a>
+                <a href="settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="nav-left">
+                    <button class="toggle-btn" id="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome-msg">
+                        <h1>Settings</h1>
+                        <p>Configure system preferences</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search settings...">
+                    </div>
+                    <div class="notification-icon"><i class="fa-solid fa-bell"></i><span class="badge">3</span></div>
+                    <div class="profile-container">
+                        <div class="profile-dropdown-trigger" id="profileTrigger">
+                            <span class="profile-name">Dara</span>
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" class="profile-img">
+                            <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i>
+                        </div>
+                        <div class="profile-dropdown-menu" id="profileDropdown">
+                            <div class="dropdown-user-info">
+                                <h4 class="profile-name">Dara</h4>
+                                <p>Administrator</p>
+                            </div>
+                            <hr class="dropdown-divider">
+                            <a href="settings.html" class="dropdown-item"><i class="fa-solid fa-gear"></i> Settings</a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-danger" id="logoutTriggerBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="settings-wrapper">
+                <div class="settings-menu-card">
+                    <div class="settings-menu-title">Settings Menu</div>
+                    <button class="settings-nav-btn" onclick="window.location.href='settings.html'">
+                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-sliders"></i> General</span>
+                    </button>
+                    <button class="settings-nav-btn" onclick="window.location.href='notifications.html'">
+                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-palette"></i> Appearance</span>
+                    </button>
+                    <button class="settings-nav-btn active" onclick="window.location.href='notifications.html'">
+                        <span style="display:flex;align-items:center;"><i class="fa-solid fa-bell"></i> Notifications</span> 
+                        <span class="settings-badge">3</span>
+                    </button>
+                </div>
+
+                <div class="settings-form-card">
+                    <div class="card-header" style="margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:10px;">
+                        <div>
+                            <h3 style="font-size:1.1rem; font-weight:600;">
+                                <i class="fa-solid fa-bell" style="color:var(--primary-teal); margin-right:6px;"></i> Notification Settings
+                            </h3>
+                            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">Configure how you receive system notifications</p>
+                        </div>
+                    </div>
+
+                    <form onsubmit="event.preventDefault(); alert('Notification profiles updated successfully!');">
+                        
+                        <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted); margin-bottom: 1rem;">Email Notifications</h4>
+                        
+                        <div class="switch-control-row">
+                            <div class="switch-label">
+                                <h5>New Orders</h5>
+                                <p>Get notified when a new order is placed</p>
+                            </div>
+                            <label class="ios-switch"><input type="checkbox" checked><span class="slider-round"></span></label>
+                        </div>
+
+                        <div class="switch-control-row">
+                            <div class="switch-label">
+                                <h5>New Users</h5>
+                                <p>Get notified when a new user registers</p>
+                            </div>
+                            <label class="ios-switch"><input type="checkbox" checked><span class="slider-round"></span></label>
+                        </div>
+
+                        <div class="switch-control-row">
+                            <div class="switch-label">
+                                <h5>Low Stock Alerts</h5>
+                                <p>Get notified when products are running low</p>
+                            </div>
+                            <label class="ios-switch"><input type="checkbox" checked><span class="slider-round"></span></label>
+                        </div>
+
+                        <div class="switch-control-row">
+                            <div class="switch-label">
+                                <h5>System Updates</h5>
+                                <p>Get notified about system updates and maintenance</p>
+                            </div>
+                            <label class="ios-switch"><input type="checkbox" checked><span class="slider-round"></span></label>
+                        </div>
+
+                        <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted); margin: 1.5rem 0 1rem 0;">Browser Notifications</h4>
+
+                        <div class="switch-control-row">
+                            <div class="switch-label">
+                                <h5>Desktop Notifications</h5>
+                                <p>Show notifications in your browser</p>
+                            </div>
+                            <label class="ios-switch"><input type="checkbox"><span class="slider-round"></span></label>
+                        </div>
+
+                        <div class="switch-control-row" style="border-bottom:none;">
+                            <div class="switch-label">
+                                <h5>Notification Sound</h5>
+                                <p>Play a sound when notifications arrive</p>
+                            </div>
+                            <label class="ios-switch"><input type="checkbox" checked><span class="slider-round"></span></label>
+                        </div>
+
+                        <div class="form-actions-row">
+                            <button type="button" class="btn-secondary" onclick="this.form.reset();">Reset</button>
+                            <button type="submit" class="btn-add" style="padding:10px 24px;">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/Germinai-style/script.js"></script>
+</body>
+
+</html>

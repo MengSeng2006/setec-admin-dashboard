@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setec | Products Admin</title>
+    <link rel="stylesheet" href="/Germinai-style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-img-container"><img src="https://final-projact-y2-s2-crud-io.vercel.app/image/logo.png"
+                        onerror="this.src='https://i.imgur.com/7EszX8v.png'" alt="SETEC Logo"></div>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i> <span>Dashboard</span></a>
+                <a href="products.html" class="menu-item"><i class="fa-solid fa-box"></i> <span>Products</span></a>
+                <a href="categories.html" class="menu-item"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
+                <a href="orders.html" class="menu-item"><i class="fa-solid fa-cart-shopping"></i>
+                    <span>Orders</span></a>
+                <a href="users.html" class="menu-item"><i class="fa-solid fa-users"></i> <span>Users</span></a>
+                <a href="settings.html" class="menu-item"><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="nav-left">
+                    <button class="toggle-btn" id="toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                    <div class="welcome-msg">
+                        <h1>Products</h1>
+                        <p>Manage your products</p>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text"
+                            placeholder="Search products..."></div>
+                    <div class="notification-icon"><i class="fa-solid fa-bell"></i><span class="badge">3</span></div>
+                    <div class="profile-container">
+                        <div class="profile-dropdown-trigger" id="profileTrigger"><span
+                                class="profile-name">Dara</span><img src="https://i.pravatar.cc/150?img=11" alt="Avatar"
+                                class="profile-img"><i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i>
+                        </div>
+                        <div class="profile-dropdown-menu" id="profileDropdown">
+                            <div class="dropdown-user-info">
+                                <h4 class="profile-name">Dara</h4>
+                                <p>Administrator</p>
+                            </div>
+                            <hr class="dropdown-divider">
+                            <a href="settings.html" class="dropdown-item"><i class="fa-solid fa-gear"></i> Settings</a>
+                            <hr class="dropdown-divider">
+                            <!-- Updated trigger ID attribute added right here below -->
+                            <a href="#" class="dropdown-item text-danger" id="logoutTriggerBtn"><i
+                                    class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-action-header">
+                <h2>Products Management</h2>
+              <button class="btn-add" id="btn-add-product">+ Add Product</button>
+            </div>
+
+            <div class="data-card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>PRODUCT</th>
+                                <th>CATEGORY</th>
+                                <th>PRICE</th>
+                                <th>STOCK</th>
+                                <th>DESCRIPTION</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="custom-modal-overlay" id="productModalOverlay">
+    <div class="product-modal-card">
+        
+        <div class="modal-card-header">
+            <h3 id="productModalTitle">Add New Product</h3>
+            <button type="button" class="close-modal-x" onclick="closeProductModal()">&times;</button>
+        </div>
+
+        <form id="modalProductForm" novalidate>
+            
+            <div class="modal-group">
+                <label><i class="fa-solid fa-box-open"></i> Product Name</label>
+                <input type="text" id="modalProdName" placeholder="e.g., Wireless Mouse">
+                <div class="modal-error-text">Product name is required</div>
+            </div>
+
+            <div class="modal-group">
+                <label><i class="fa-solid fa-tags"></i> Category</label>
+                <select id="modalProdCategory">
+                    <option value="General">General</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Hardware">Hardware</option>
+                </select>
+            </div>
+
+            <div class="form-modal-row">
+                <div class="modal-group">
+                    <label><i class="fa-solid fa-dollar-sign"></i> Price ($)</label>
+                    <input type="number" id="modalProdPrice" step="0.01" placeholder="0.00">
+                    <div class="modal-error-text">Enter a valid price greater than 0</div>
+                </div>
+                <div class="modal-group">
+                    <label><i class="fa-solid fa-layer-group"></i> Stock Quantity</label>
+                    <input type="number" id="modalProdStock" placeholder="0">
+                    <div class="modal-error-text">Enter a valid stock number</div>
+                </div>
+            </div>
+
+            <div class="modal-group">
+                <label><i class="fa-solid fa-align-left"></i> Description</label>
+                <textarea id="modalProdDesc" rows="3" placeholder="Enter product details or specifications..."></textarea>
+            </div>
+
+            <div class="modal-action-footer">
+                <button type="button" class="btn-modal-cancel" onclick="closeProductModal()">Cancel</button>
+                <button type="submit" class="btn-modal-save">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Product
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+    <script src="/Germinai-style/script.js"></script>
+</body>
+
+</html>
